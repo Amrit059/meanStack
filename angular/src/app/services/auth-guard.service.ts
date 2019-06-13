@@ -12,10 +12,10 @@ export class AuthGuardService implements CanActivate {
   constructor(private localStorageService: LocalStorageService, private router: Router) { }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
-    // if (!this.localStorageService.get(LS_KEY.API_TOKEN)) {
-    //   this.router.navigateByUrl('/login');
-    //   return false;
-    // }
+    if (!this.localStorageService.get(LS_KEY.API_TOKEN)) {
+      this.router.navigateByUrl('/login');
+      return false;
+    }
     return true;
   }
 

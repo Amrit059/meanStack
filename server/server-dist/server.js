@@ -11483,7 +11483,7 @@ let UserController = class UserController {
         const userDocument = req.body;
         winston_1.default.debug('user information' + JSON.stringify(req.body));
         this.userService.createUser(userDocument).subscribe((userModel) => {
-            res.send({ userModel: userModel }).status(200);
+            res.send(userModel).status(200);
         }, (error) => {
             winston_1.default.error(error);
             res.status(500).send({ message: error });
@@ -11493,7 +11493,7 @@ let UserController = class UserController {
         const userDocument = req.body;
         winston_1.default.debug('user information' + JSON.stringify(req.body));
         this.userService.updateUser(userDocument).subscribe((userModel) => {
-            res.send({ userModel: userModel }).status(200);
+            res.send(userModel).status(200);
         }, (error) => {
             winston_1.default.error(error);
             res.status(500).send({ message: error });

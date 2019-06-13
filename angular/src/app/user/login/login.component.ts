@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
     console.log('submit is ', this.loginForm);
     this.userModel = this.loginForm.getRawValue();
     this.userService.login(this.userModel).subscribe(
-      (data: any) => {
+      (data: UserModel) => {
         console.log('finale data is ', data);
         this.userService.setTokenInLocalStorage(data);
         this.router.navigate(['/users']);

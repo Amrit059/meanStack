@@ -44,8 +44,8 @@ export class UserService {
     return this.httpUtillService.delete(`user/${id}`, {});
   }
 
-  setTokenInLocalStorage(token: any) {
-    this.localStorageService.set(LS_KEY.API_TOKEN, token);
+  setTokenInLocalStorage(value: UserModel) {
+    this.localStorageService.set(LS_KEY.API_TOKEN, value);
   }
 
   isLogIn() {

@@ -4,7 +4,8 @@ import { RoutingComponent } from './routing.component';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeModule } from '../home/home.module';
 import { UserModule } from '../user/user.module';
-import {MatIconModule} from '@angular/material/icon';
+import { MatIconModule } from '@angular/material/icon';
+import { AuthGuardService } from '../services/auth-guard.service';
 
 
 const routes: Routes = [
@@ -16,7 +17,7 @@ const routes: Routes = [
 
   {
     path: 'home',
-    loadChildren: '../home/home.module#HomeModule',
+    loadChildren: '../home/home.module#HomeModule', canActivate: [AuthGuardService]
   }
 ];
 
@@ -27,8 +28,9 @@ const routes: Routes = [
     UserModule,
     HomeModule,
     MatIconModule
-    ],
+  ],
   declarations: [RoutingComponent],
+  providers: [AuthGuardService],
   exports: [RoutingComponent]
 })
 export class RoutingModule { }

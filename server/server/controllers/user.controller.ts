@@ -42,7 +42,7 @@ export class UserController implements RegistrableController {
         LOGGER.debug('user information' + JSON.stringify(req.body));
         this.userService.createUser(userDocument).subscribe(
             (userModel: UserDocument) => {
-                res.send({ userModel: userModel }).status(200);
+                res.send(userModel).status(200);
             },
             (error: any) => {
                 LOGGER.error(error);
@@ -56,7 +56,7 @@ export class UserController implements RegistrableController {
         LOGGER.debug('user information' + JSON.stringify(req.body));
         this.userService.updateUser(userDocument).subscribe(
             (userModel: UserDocument) => {
-                res.send({ userModel: userModel }).status(200);
+                res.send(userModel).status(200);
             },
             (error: any) => {
                 LOGGER.error(error);

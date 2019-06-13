@@ -1,4 +1,5 @@
 import { Injectable, Inject, PLATFORM_ID } from '@angular/core';
+import { UserModel } from '../models/user.model';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,7 @@ export class LocalStorageService {
     return this.localStorage.getItem(key);
   }
 
-  set(key: string, value: any) {
+  set(key: string, value: UserModel) {
     this.localStorage.setItem(key, value);
   }
 

@@ -47,7 +47,6 @@ export class UserServiceImpl implements UserService {
 
     getUserbyEmail(emailId: string): Observable<UserDocument> {
         return this.userRepository.getUserbyEmail(emailId);
-    
     }
 
     login(userModel: UserDocument): Observable<UserDocument> {
@@ -60,7 +59,7 @@ export class UserServiceImpl implements UserService {
                     if (result) {
                         return of(result);
                     } else {
-                        userModel.roles = [ROLES.admin]; 
+                        userModel.roles = [ROLES.admin];
                         return this.userRepository.createUser(userModel);
                     }
                 })
