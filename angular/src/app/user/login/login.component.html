@@ -1,0 +1,21 @@
+<div style="text-align: center;">
+  <div>
+    <form [formGroup]="loginForm">
+      <div>
+        <mat-form-field>
+          <input matInput type="text" placeholder="Email Id" name="emailId" formControlName="emailId" required>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <input matInput type="password" placeholder="Enter Password" name="password" formControlName="password"
+            required>
+        </mat-form-field>
+      </div>
+      <button [disabled]="loginForm.invalid" mat-raised-button (click)="submit(loginForm)" type="submit"
+        color="primary">Log In</button>
+    </form>
+  </div>
+</div>
+<!-- <label>Create a new account</label>
+<a routerLink="/signup"> Sigup</a> -->

@@ -1,0 +1,22 @@
+<table>
+  <tr>
+    <th>Email Id</th>
+    <th>Mobile no</th>
+    <th>DOB</th>
+    <th>Marital Status</th>
+    <th>gender</th>
+  </tr>
+
+  <tr *ngFor="let user of userList" style="text-align: center">
+    <td>{{user.emailId}}</td>
+    <td>{{user.mNo}}</td>
+    <td>{{user.dob}}</td>
+    <td>{{user.maritalStatus}}</td>
+    <td>{{user.gender}}</td>
+    <td><button mat-raised-button color="primary" [routerLink]="['/update', user._id]">
+        <a>update</a></button></td>
+    <td><button mat-raised-button color="warn" (click)="delete(user._id)">
+        <a>Delete</a></button></td>
+  </tr>
+</table>
+<!-- <p>user list page</p> -->

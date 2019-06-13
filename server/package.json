@@ -1,0 +1,61 @@
+{
+    "name": "angular-io-example",
+    "version": "1.0.0",
+    "private": true,
+    "description": "Example project from an angular.io guide.",
+    "engines": {
+        "node": "8.6.0",
+        "npm": "5.6.0"
+    },
+    "scripts": {
+        "start": "node ./server-dist/server.js",
+        "build": "webpack --config webpack.config.js",
+        "start:build-and-start-server": "npm run build && node ./server-dist/server.js",
+        "start:local": "set NODE_ENV=default&& npm run start:build-and-start-server",
+        "start:prod": "set NODE_ENV=prod&& npm run start:build-and-start-server",
+        "start:dev": "set NODE_ENV=dev&& npm run start:build-and-start-server"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "MIT",
+    "dependencies": {
+        "@types/jsonwebtoken": "^8.3.2",
+        "atob": "^2.1.2",
+        "body-parser": "^1.18.3",
+        "btoa": "^1.2.1",
+        "concurrently": "^4.0.1",
+        "config": "^2.0.1",
+        "cors": "^2.8.4",
+        "express": "^4.16.3",
+        "inversify": "^4.13.0",
+        "jsonwebtoken": "^8.5.1",
+        "moment": "^2.22.2",
+        "moment-timezone": "^0.5.23",
+        "mongoose": "^5.2.10",
+        "npm": "^6.4.0",
+        "querystring": "^0.2.0",
+        "reflect-metadata": "^0.1.12",
+        "rxjs": "^6.3.1",
+        "typescript": "^3.0.1",
+        "winston": "^3.0.0"
+    },
+    "devDependencies": {
+        "@types/atob": "^2.1.1",
+        "@types/body-parser": "^1.17.0",
+        "@types/btoa": "^1.2.0",
+        "@types/config": "0.0.34",
+        "@types/cors": "^2.8.4",
+        "@types/express": "^4.16.0",
+        "@types/moment": "^2.13.0",
+        "@types/mongodb": "^3.1.4",
+        "@types/mongoose": "^5.2.7",
+        "base-64": "^0.1.0",
+        "ts-lint": "^4.5.1",
+        "ts-loader": "^4.5.0",
+        "ts-node": "^7.0.1",
+        "tslint": "^5.11.0",
+        "webpack": "^4.17.1",
+        "webpack-cli": "^3.1.0"
+    },
+    "repository": {}
+}

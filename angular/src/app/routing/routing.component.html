@@ -1,0 +1,21 @@
+<nav>
+    <div class="dropdown">
+        <ul> <i class="material-icons">menu</i>
+            <div class="dropdown-content">
+                <li>
+                    <a routerLink="/home">Home</a>
+                    <a routerLink="/login" *ngIf="!authService.isLogIn()">Login</a>
+                    <a routerLink="/signup" *ngIf="!authService.isLogIn()">SignUp</a>
+                    <a routerLink="/users" *ngIf="authService.isLogIn()">Users</a>
+                    <a routerLink="/login" *ngIf="authService.isLogIn()" (click)="authService.logout()">Logout</a>
+                    <a></a>
+
+                </li>
+            </div>
+        </ul>
+    </div>
+</nav>
+<br>
+<br>
+<router-outlet>
+</router-outlet>

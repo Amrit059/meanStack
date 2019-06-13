@@ -1,0 +1,80 @@
+<div style="text-align: center;">
+
+  <div>
+    <form [formGroup]="userForm">
+      <div>
+        <mat-form-field>
+          <input matInput type="text" placeholder="Email Id" name="emailId" formControlName="emailId" required>
+          <mat-error *ngIf="userForm.get('emailId')?.errors && userForm.get('emailId')?.errors['required']">
+            {{errorMessages.INVALID_EMAIL_ID}}</mat-error>
+          <mat-error
+            *ngIf="userForm.get('emailId').errors && (!userForm.get('emailId').errors['required'] && userForm.get('emailId').errors['pattern'])">
+            {{errorMessages.INVALID_EMAIL_PATTERN}}</mat-error>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <input matInput type="text" maxlength="10" placeholder="Mobile Number" name="mNo" formControlName="mNo"
+            required>
+          <mat-error *ngIf="userForm.get('mNo')?.errors && userForm.get('mNo')?.errors['required']">
+            {{errorMessages.INVALID_MOBILE_NUMBER}}</mat-error>
+          <mat-error
+            *ngIf="userForm.get('mNo').errors && (!userForm.get('mNo').errors['required'] && userForm.get('mNo').errors['pattern'])">
+            {{errorMessages.INVALID_MOBILE_NUMBER}}</mat-error>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <input matInput [max]="maxDOB" [matDatepicker]="picker" name="dob" formControlName="dob"
+            placeholder="Date of Birth" required>
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+          <mat-error *ngIf="userForm.get('dob')?.errors && userForm.get('dob')?.errors['required']">
+            {{errorMessages.INVALID_DOB}}</mat-error>
+
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <textarea matInput type="text" maxlength="200" placeholder="User Bio" name="bio"
+            formControlName="bio"></textarea>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <mat-select name="gender" formControlName="gender" placeholder="Gender">
+            <mat-option *ngFor="let g of genders" [value]="g.value">
+              {{ g.display }}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="userForm.get('gender')?.errors && userForm.get('gender')?.errors['required']">
+            {{errorMessages.SELECT_GENDER}}</mat-error>
+
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <mat-select name="maritalStatus" formControlName="maritalStatus" placeholder="Marital Status">
+            <mat-option *ngFor="let m of maritalStatus" [value]="m.value">
+              {{ m.display }}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="userForm.get('maritalStatus')?.errors && userForm.get('maritalStatus')?.errors['required']">
+            {{errorMessages.SELECT_MARRIAGE_STATUS}}</mat-error>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <input matInput type="password" placeholder="Enter Password" name="password" formControlName="password"
+            required>
+          <mat-error *ngIf="userForm.get('password')?.errors && userForm.get('password')?.errors['required']">
+            {{errorMessages.INVALID_PASSWORD}}</mat-error>
+          <mat-error *ngIf="userForm.get('password')?.invalid">{{errorMessages.INVALID_PASSWORD}}</mat-error>
+        </mat-form-field>
+      </div>
+      <button [disabled]="userForm.invalid" mat-raised-button (click)="submit(userForm)" type="submit"
+        color="primary">Submit</button>
+      <button mat-raised-button (click)="resetForm(userForm)" color="warn">Reset Form</button>
+    </form>
+  </div>
+</div>

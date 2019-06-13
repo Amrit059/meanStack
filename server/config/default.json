@@ -1,0 +1,10 @@
+{
+    "appConfig": {
+        "hostConfig": {
+            "port": 3000
+        },
+        "dbConfig": {
+            "url": "mongodb://amrit:qwerty123@ds235437.mlab.com:35437/mean-stackdb"
+        }
+    }
+}
